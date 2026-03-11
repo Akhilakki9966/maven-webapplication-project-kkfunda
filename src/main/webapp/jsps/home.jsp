@@ -46,7 +46,7 @@
 <body>
 
 <header>
-     <h1> WELCOME TO KK FUNDA DEVOPS NEW BATCH WILL START ON January 20266 </h1> 
+     <h1> WELCOME TO KK FUNDA DEVOPS NEW BATCH WILL START ON January 2026 </h1> 
     <h3>Training | Development | Consulting</h3>
 </header>
 
