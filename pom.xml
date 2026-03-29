@@ -98,7 +98,7 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Releases Nexus Repository</name>
-	      <url>http://54.225.44.180:8081/repository/pega-release/</url>
+	      <url>http://54.198.187.150:8081/repository/jio-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
