@@ -1,9 +1,6 @@
 #stage 1
 
-FROM tomcat:9.0-jdk17
-
-RUN apt-get update && \
-    apt-get install maven -y
+FROM maven:3.9.9-eclipse-temurin-17 AS build
 
 WORKDIR /app
 
@@ -15,6 +12,10 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
+#stage 2
+
+FROm tomcat:9.0-jdk17
+
 RUN groupadd -r dockergroup && \
     useradd -r -m -g dockergroup -s /bin/bash akhil
 
@@ -23,7 +24,7 @@ RUN chown -R akhil:dockergroup /usr/local/tomcat && \
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-RUN cp target/*.war /usr/local/tomcat/webapps/app.war
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/app.war
 
 USER akhil
 
