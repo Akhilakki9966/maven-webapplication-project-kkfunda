@@ -19,6 +19,42 @@
         <!-- ONLY this is needed -->
         <sonar.host.url>http://13.221.181.129:9000</sonar.host.url>
     </properties>
+         <properties>
+    <spring.version>5.3.34</spring.version>
+    <jdk.version>17</jdk.version>
+</properties>
+
+<dependencies>
+
+    <!-- Spring Core -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!-- IMPORTANT: Web MVC (fixes Controller, RequestMapping etc.) -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!-- Spring Web -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <!-- Spring Context -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+</dependencies>
 
     <dependencies>
 
