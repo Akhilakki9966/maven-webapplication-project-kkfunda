@@ -1,5 +1,4 @@
-#stage 1
-
+#stage1
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 
 WORKDIR /app
@@ -12,21 +11,13 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-#stage 2
+#stage2
 
-FROm tomcat:9.0-jdk17
-
-RUN groupadd -r dockergroup && \
-    useradd -r -m -g dockergroup -s /bin/bash akhil
-
-RUN chown -R akhil:dockergroup /usr/local/tomcat && \
-    chmod 755 /usr/local/tomcat
+FROM tomcat:9.0-jdk17-temurin
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/app.war
-
-USER akhil
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/maven-project.war
 
 EXPOSE 8080
 
